@@ -17,3 +17,6 @@
 |   `HELP`   | Show you the Help menu.                                                                                                                |
 |   `CLEAR`  | Clear the terminal screen.                                                                                                             |
 |   `QUITE`  | Exit the REPL cleanly. A message to stderr may be output.                                                                              |
+
+## Example
+<img src="https://i.imgur.com/0j6gimw.png">
