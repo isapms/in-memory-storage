@@ -1,6 +1,7 @@
 # in-memory-storage
 
-> K/V REPL with nested transactions
+> Command line REPL to manage a simple in-memory key/value storage system.
+> This system allows nested transactions. A transaction can then be committed or aborted.
 
 
 ## The shell accepts the following commands:
