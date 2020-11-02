@@ -18,42 +18,6 @@ type TransactionList struct {
 	head *Transaction
 }
 
-// Set sets the given key the specified value.
-// The key can also be updated.
-func (tl *TransactionList) Set(key, value string) {
-	if tl.head != nil {
-		tl.head.Set(key, value)
-	} else {
-		Storage[key] = value
-	}
-}
-
-// Get returns the current value of the specified key
-func (tl *TransactionList) Get(key string) (value string, err error) {
-	if tl.head == nil {
-		if value, ok := Storage[key]; ok {
-			return value, nil
-		}
-
-		return value, KeyNotFound.Error(key)
-	}
-
-	return tl.head.Get(key)
-}
-
-// Delete deletes the current specified key
-func (tl *TransactionList) Delete(key string) bool {
-	if tl.head == nil {
-		if _, found := Storage[key]; found {
-			delete(Storage, key)
-			return true
-		}
-		return false
-	}
-
-	return tl.head.Delete(key)
-}
-
 // Set sets key:value for the current transaction storage
 func (t *Transaction) Set(key, value string) {
 	t.storage[key] = value
@@ -97,6 +61,42 @@ func (t *Transaction) Delete(key string) bool {
 	}
 
 	return false
+}
+
+// Set sets the given key the specified value.
+// The key can also be updated.
+func (tl *TransactionList) Set(key, value string) {
+	if tl.head != nil {
+		tl.head.Set(key, value)
+	} else {
+		Storage[key] = value
+	}
+}
+
+// Get returns the current value of the specified key
+func (tl *TransactionList) Get(key string) (value string, err error) {
+	if tl.head == nil {
+		if value, ok := Storage[key]; ok {
+			return value, nil
+		}
+
+		return value, KeyNotFound.Error(key)
+	}
+
+	return tl.head.Get(key)
+}
+
+// Delete deletes the current specified key
+func (tl *TransactionList) Delete(key string) bool {
+	if tl.head == nil {
+		if _, found := Storage[key]; found {
+			delete(Storage, key)
+			return true
+		}
+		return false
+	}
+
+	return tl.head.Delete(key)
 }
 
 // Begin starts a new Transaction
