@@ -36,7 +36,7 @@ func cmdHelp() {
 	fmt.Println("> Available commands: ")
 	fmt.Println("> READ <key>			- Reads and prints to stdout, the val associated with key. If the value is not present an error is printed to stderr. ")
 	fmt.Println("> WRITE <key> <val>		- Stores val in key. ")
-	fmt.Println("> DELETE<key>			- Removes all key from store. Future READ commands on that key will return an error. ")
+	fmt.Println("> DELETE <key>			- Removes all key from store. Future READ commands on that key will return an error. ")
 	fmt.Println("> START				- Start a transaction. ")
 	fmt.Println("> COMMIT			- Commit a transaction. All actions in the current transaction are committed to the parent tx or the root store. If there is no current tx an error is output to stderr. ")
 	fmt.Println("> ABORT				- Abort a transaction. All actions in the current transaction are discarded. ")
