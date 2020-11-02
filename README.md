@@ -1,9 +1,6 @@
 # in-memory-storage
 
-## K/V REPL with nested transactions
-```
-go get github.com/isapms/in-memory-storage
-```
+> K/V REPL with nested transactions
 
 
 ## The shell accepts the following commands:
