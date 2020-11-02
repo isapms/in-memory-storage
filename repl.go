@@ -27,7 +27,7 @@ func get(r *bufio.Reader) string {
 
 func recoverCommand(text string) {
 	if r := recover(); r != nil {
-		fmt.Println("Unknown command: ", text)
+		fmt.Fprintln(os.Stderr, "Unknown command: ", text)
 	}
 }
 
@@ -95,12 +95,12 @@ func commands(input string, items *TransactionList) {
 		cmdExit()
 
 	default:
-		fmt.Println("Unrecognised Operation", input)
+		fmt.Fprintln(os.Stderr, "Unrecognised Operation: ", input)
 		return
 	}
 
 	if err != nil {
-		fmt.Println(err)
+		fmt.Fprintln(os.Stderr, err.Error())
 		return
 	}
 
